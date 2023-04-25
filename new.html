@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Email</title>
+</head>
+<body>
+  <h1>Send Email</h1>
+  <form>
+    <label for="to">To:</label>
+    <input type="email" id="to" name="to" required><br><br>
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required><br><br>
+    <label for="body">Body:</label><br>
+    <textarea id="body" name="body" rows="10" cols="50" required></textarea><br><br>
+    <input type="file" name="image" id="file">
+    <button type="submit" onclick="sendEmail(event)">Send Email</button>
+  </form>
+
+  <script>
+    function sendEmail(event) {
+      event.preventDefault();
+      
+      const to = document.getElementById("to").value;
+      const subject = document.getElementById("subject").value;
+      const body = document.getElementById("body").value;
+      const file = document.getElementById("file").value;
+
+
+      const mailtoLink = `mailto:${to}?subject=${subject}&body=${body,file}`;
+      window.location.href = mailtoLink;
+    }
+  </script>
+</body>
+</html>
